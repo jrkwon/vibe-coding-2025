@@ -136,7 +136,9 @@ if __name__ == "__main__":
     
     # Starting seed for the generation (must be n-1 characters long)
     # Using 'I'm ' as the seed
-    SEED_TEXT = SONG_LYRICS_DATASET[:N_GRAM_N - 1] 
+    # --> Let's use a random seed from the dataset
+    random_start_index = random.randint(0, len(SONG_LYRICS_DATASET) - N_GRAM_N)
+    SEED_TEXT = SONG_LYRICS_DATASET[random_start_index:random_start_index+N_GRAM_N - 1] 
 
     print("--- 🎶 Toy Character N-gram LLM Generator (main.py) ---")
     print(f"Dataset Size: {len(SONG_LYRICS_DATASET)} characters")
